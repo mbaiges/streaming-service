@@ -239,23 +239,31 @@ srs/trunk/objs/nginx/html/rec/app
 
 # Codecs
 
-## Soportados
-
-(TODO: averiguar esto)
-
-## Negociación de codec
-
 Podemos observar los codecs utilizados durante el intercambio del protocolo `RTMP` con la herramienta `Wireshark`.
 
-### Wireshark
+## Audio HE-AAC
 
-(TODO: llenar con fotos)
+Como codec de Audio se utiliza HE-AAC (High-Efficiency Advanced Audio Coding). Es un formato de compresión de audio digital. Su uso está optimizado para velocidades de transmisión bajas o muy bajas.
+
+![Wireshark](./resources/wireshark3.png)
+
+## Video H.264
+
+Como codec de Video se utiliza H.264 o MPEG-4 AVC (Advanced Video Coding). Es un formato de codificación de video para grabar y distribuir señales de vídeo.  Suministra imágenes de alta calidad sin consumir demasiado ancho de banda.
+
+![Wireshark](./resources/wireshark2.png)
+
 
 # Intercambio de paquetes
 
 En `Wireshark` podemos seguir una trama `RTMP` para observar el intercambio de paquetes entre cliente y servidor.
 
-(TODO: seguir la trama en wireshark y ver el intercambio)
+Se puede ver el Handshake RTMP y la conexión al stream `eugestream`
+
+![Wireshark](./resources/wireshark1.png)
+
+Se transfiere la información de Audio y Video
+![Wireshark](./resources/wireshark4.png)
 
 # Consola
 
