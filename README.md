@@ -11,6 +11,8 @@ SRS es un servidor de audio y video simple y eficiente, que soporta:
 - [HTTP-FLV](https://es.wikipedia.org/wiki/Flash_Video)
 - [SRT](https://en.wikipedia.org/wiki/Secure_Reliable_Transport)
 
+Para una comparativa respecto de las distintas opciones soportadas, ver [aquí](https://github.com/ossrs/srs/wiki/v2_EN_RTMP.PK.HTTP#).
+
 El repositorio se encuentra en [GitHub](https://github.com/ossrs/srs). Cuenta con 18.3k stars y 4.6k forks y es llevado a cabo principalmente por desarrolladores de China. Es por esto que muchas partes de la aplicación siguen en idioma Chino. Sin embargo, gran parte de la [documentación](https://github.com/ossrs/srs/wiki) se encuentra en inglés.
 
 El proyecto lleva ya 9 años, y aún sigue activo.
