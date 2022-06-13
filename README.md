@@ -147,7 +147,8 @@ Y ejecutamos el servidor utilizando el comando
 
 ## AWS 
 
-
+El server SRS se puede levantar en una instancia EC2. 
+Para intrucciones de configuración ver `aws_condig.md`
 
 # Uso
 
