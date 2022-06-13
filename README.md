@@ -102,10 +102,11 @@ En la carpeta `root` (donde se encuentra el archivo `custom.conf`), ejecutar la 
 # Server IP needs to be replaced
 export SERVER_IP="Your.Server.IP"
 
-docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 \
+docker run --rm -it -p 1935:1935 -p 1985:1985 -p 80:8080 \
 -e CANDIDATE=$SERVER_IP \
+-v "$PWD/.conf:/usr/local/srs/conf/custom.conf" \
 -v "$PWD/rec/:/usr/local/srs/objs/nginx/html/rec/" \
---name redes-srs redes-srs
+--name srs ossrs/srs:4 ./objs/srs -c conf/custom.conf
 ```
 
 # Uso
@@ -118,7 +119,7 @@ Para publicar un stream de audio y video, utilizaremos el protocolo RTMP.
 
 ### OBS
 
-Desde OBS, en la configuración, en la sección de `Stream`, usaremos de servidor `rtmp://$SERVER_IP:1935/app/` y como llave para el stream, la que queramos. En este caso usaremos `mystream`. Es importante recordar la clave ya que se usará luego para acceder al stream.
+Desde OBS, en la configuración `Settings`, en la sección de `Stream`, usaremos el Servicio `Custom` con el Servidor `rtmp://$SERVER_IP:1935/app/` y como llave para el stream, la que queramos. En este caso usaremos `mystream`. Es importante recordar la clave ya que se usará luego para acceder al stream.
 
 ![OBS Config](./resources/obs_config.png)
 
@@ -126,7 +127,7 @@ Luego, podemos iniciar el streaming, y se verá cuando se conectó al servidor e
 
 ![OBS Streaming](./resources/obs_streaming.png)
 
-Se puede observar el cuadro verde y la sección de `LIVE` indicando el tiempo de streaming.
+Se puede observar el cuadrado verde y la sección de `LIVE` indicando el tiempo de streaming.
 
 ### FFMPEG
 
