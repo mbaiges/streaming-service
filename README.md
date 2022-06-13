@@ -98,6 +98,8 @@ vhost __defaultVhost__ {
 
 # Instalación
 
+## Docker
+
 En la carpeta `root` (donde se encuentra el archivo `custom.conf`), ejecutar la siguiente línea
 
 ```bash
@@ -109,6 +111,34 @@ docker run --rm -it -p 1935:1935 -p 1985:1985 -p 80:8080 \
 -v "$PWD/.conf:/usr/local/srs/conf/custom.conf" \
 -v "$PWD/rec/:/usr/local/srs/objs/nginx/html/rec/" \
 --name srs ossrs/srs:4 ./objs/srs -c conf/custom.conf
+```
+
+## Local
+
+Nos descargamos la configuración `custom.conf`, desde [aquí](https://raw.githubusercontent.com/mbaiges/streaming-service/main/custom.conf).
+
+Clonamos el repositorio oficial de SRS y lo compilamos.
+
+```bash
+# Clonamos el repo
+git clone -b 4.0release https://gitee.com/ossrs/srs.git
+
+# Compilamos el proyecto
+cd srs/trunk
+./configure
+make
+```
+
+Luego, colocamos el archivo de configuración `custom.conf` en el directorio `config`.
+
+```bash
+wget https://raw.githubusercontent.com/mbaiges/streaming-service/main/custom.conf -O config/custom.conf
+```
+
+Y ejecutamos el servidor utilizando el comando
+
+```bash
+./objs/srs -c conf/custom.conf
 ```
 
 # Uso
