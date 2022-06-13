@@ -120,8 +120,12 @@ Nos descargamos la configuración `custom.conf`, desde [aquí](https://raw.githu
 Clonamos el repositorio oficial de SRS y lo compilamos.
 
 ```bash
-# Clonamos el repo
-git clone -b 4.0release https://gitee.com/ossrs/srs.git
+# Conseguimos la última version de SRS 
+wget https://github.com/ossrs/srs/archive/refs/tags/v5.0.25.zip -O srs.zip
+sudo apt install unzip
+unzip srs.zip 
+mv srs-5.0.25 srs
+rm -rf srs.zip  
 
 # Compilamos el proyecto
 cd srs/trunk
@@ -132,7 +136,7 @@ make
 Luego, colocamos el archivo de configuración `custom.conf` en el directorio `config`.
 
 ```bash
-wget https://raw.githubusercontent.com/mbaiges/streaming-service/main/custom.conf -O config/custom.conf
+wget https://raw.githubusercontent.com/mbaiges/streaming-service/main/custom.conf -O conf/custom.conf
 ```
 
 Y ejecutamos el servidor utilizando el comando
@@ -140,6 +144,10 @@ Y ejecutamos el servidor utilizando el comando
 ```bash
 ./objs/srs -c conf/custom.conf
 ```
+
+## AWS 
+
+
 
 # Uso
 
@@ -223,6 +231,10 @@ Accediendo a `http://$SERVER_IP:8080/app/mystream.m3u8`, obtenemos el archivo `.
 ### WebRTC
 
 (TODO: Creo que es Peer2Peer, pero tiene un conversor para soportarlo, los puertos están abiertos y todo. Llegué a poder probar el player inclusive - consiguiendo video - desde la WebApp de SRS)
+
+# Grabación de la Sesión 
+TODO
+srs/trunk/objs/nginx/html/rec/app
 
 # Codecs
 
