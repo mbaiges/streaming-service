@@ -52,10 +52,25 @@ Probar:
 
 
 ## Wireshark 
-Ya se capturaron los paquetes y se puede ver:
+8. Ya se capturaron los paquetes y se puede ver:
 - Intercambio RTMP ( Handshake, publishStream )
 - Codecs ( H.264 para video, HE-AAC para audio ) 
 
 Ir a la sección STATISTICS -> CONVERSATIONS -> IPV4 O TCP -> BIT PER SECOND. Se puede ver:
 - Ancho de banda Total 
-- Ancho de banda por Cliente  
+- Ancho de banda por Cliente 
+
+
+## HLS 
+
+9. Con la extensión de Chrome "Play HLS m3u8" instalada acceder a: 
+```bash
+http://$SERVER_IP:8080/app/mystream.m3u8
+```
+10. En Wireshark se pueden ver los paquetes HTTP que usa el protocolo
+
+## Codecs 
+
+
+
+
